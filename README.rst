@@ -48,7 +48,34 @@ You can install ``cryptography`` with:
 
     $ pip install cryptography
 
-For full details see `the installation documentation`_.
+
+In this clone
+~~~~~~~~~~
+
+.. code-block:: pycon
+
+    >>> from cryptography.fernet import Fernet
+    >>> # If you want the same messages to be encrypted equally always
+    >>> # Put the key, the seed and the IV somewhere safe!
+    >>> import os
+    >>> key = Fernet.generate_key()
+    >>> seed = 12345
+    >>> iv = os.urandom(16)
+    >>> f = Fernet(key)
+    >>> token = f.encrypt("A really secret message. Not for prying eyes.", seed = seed, iv = iv)
+    >>> token
+    '...'
+    >>> f.decrypt(token)
+    'A really secret message. Not for prying eyes.'
+
+In this clone, I made a small modification to the original code that allows equal messages 
+to be encrypted equally. In a specific situation, it was useful for me and maybe it is 
+also for other people. If you want, you can just modify the fernet.py file or install it from my github.
+
+.. code-block:: console
+
+    $ pip install git+https://github.com/wellingtonf-souza/cryptography.git
+
 
 Discussion
 ~~~~~~~~~~
