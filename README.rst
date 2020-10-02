@@ -49,7 +49,7 @@ You can install ``cryptography`` with:
     $ pip install cryptography
 
 
-In this clone
+In this fork
 ~~~~~~~~~~
 
 .. code-block:: pycon
